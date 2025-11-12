@@ -86,45 +86,6 @@ bun format       # Format code
 bun check        # Run Biome checks (lint + format)
 ```
 
-## Development
-
-### Adding New 3D Components
-
-Create a new component in `src/components/` following the pattern of existing
-components:
-
-```tsx
-import { Canvas } from '@react-three/fiber'
-import { useRef } from 'react'
-import { Mesh } from 'three'
-
-export function RotatingShape() {
-  const meshRef = useRef<Mesh>(null)
-
-  return (
-    <Canvas>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} />
-      <mesh ref={meshRef}>
-        <boxGeometry args={[2, 2, 2]} />
-        <meshStandardMaterial color="cyan" />
-      </mesh>
-    </Canvas>
-  )
-}
-```
-
-### Routing
-
-This project uses TanStack Router with file-based routing. Add new routes by
-creating files in `src/routes/`.
-
-## Code Quality
-
-- **Biome** handles both linting and formatting
-- **TypeScript** ensures type safety throughout the codebase
-- **Vitest** provides fast unit testing
-
 ## License
 
 MIT
