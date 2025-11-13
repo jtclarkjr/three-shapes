@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { GridFloor } from '@/components/grid/GridFloor'
 import { RotatingCard } from '@/components/RotatingCard'
@@ -27,6 +27,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      <Link
+        to="/robots-map"
+        className="absolute top-6 right-6 z-10 bg-slate-800/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-cyan-400 hover:text-cyan-300 hover:bg-slate-700/90 transition-colors font-semibold"
+      >
+        Robot Map →
+      </Link>
+
       <section className="py-20 px-6 vh-100 text-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 pointer-events-none" />
 

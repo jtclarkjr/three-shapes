@@ -10,6 +10,9 @@ This project demonstrates the integration of Three.js with React using
 toruses, and cones. Users can dynamically switch between different geometries
 through an interactive UI.
 
+The application also includes a robot 3D map page that visualizes robot
+positions and movements in a 3D store environment.
+
 ## Tech Stack
 
 - **React 19** - UI framework
