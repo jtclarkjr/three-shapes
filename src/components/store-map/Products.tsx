@@ -8,7 +8,7 @@ interface ProductsProps {
 
 const tempObject = new Object3D()
 
-export function Products({ products }: ProductsProps) {
+export const Products = ({ products }: ProductsProps) => {
   const meshRef = useRef<InstancedMesh>(null)
 
   useEffect(() => {

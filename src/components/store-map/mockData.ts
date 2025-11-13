@@ -3,7 +3,7 @@ import type { Product, Robot } from './types'
 const STORE_WIDTH = 250
 const STORE_HEIGHT = 150
 
-export function generateProducts(count: number): Product[] {
+export const generateProducts = (count: number): Product[] => {
   const products: Product[] = []
 
   // storefloor-style layout: multiple aisles with shelving units
@@ -60,7 +60,7 @@ export function generateProducts(count: number): Product[] {
   return products
 }
 
-export function generateRobots(count: number): Robot[] {
+export const generateRobots = (count: number): Robot[] => {
   const robots: Robot[] = []
   const robotNames = [
     'WALL-E',

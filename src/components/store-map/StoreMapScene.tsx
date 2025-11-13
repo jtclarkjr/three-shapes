@@ -11,10 +11,10 @@ interface StoreMapSceneProps {
   robotCount?: number
 }
 
-export function StoreMapScene({
+export const StoreMapScene = ({
   productCount = 100000,
   robotCount = 50
-}: StoreMapSceneProps) {
+}: StoreMapSceneProps) => {
   const products = useMemo(() => generateProducts(productCount), [productCount])
   const initialRobots = useMemo(() => generateRobots(robotCount), [robotCount])
   const robots = useRobotSimulation(initialRobots, products)

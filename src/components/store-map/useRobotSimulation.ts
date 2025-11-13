@@ -101,22 +101,6 @@ function getValidDestination(): { x: number; y: number } {
 const ROBOT_RADIUS = 2
 const PRODUCT_RADIUS = 0.5
 const COLLISION_BUFFER = 0.5
-const BOUNCE_DAMPING = 0.8 // Energy retained after bounce (0-1)
-
-function _checkRobotCollision(
-  x: number,
-  y: number,
-  currentRobotId: string,
-  allRobots: Robot[]
-): boolean {
-  return allRobots.some((robot) => {
-    if (robot.id === currentRobotId) return false
-    const dx = x - robot.x
-    const dy = y - robot.y
-    const distance = Math.sqrt(dx * dx + dy * dy)
-    return distance < ROBOT_RADIUS * 2 + COLLISION_BUFFER
-  })
-}
 
 function checkProductCollision(
   x: number,
@@ -132,38 +116,6 @@ function checkProductCollision(
     }
   }
   return null
-}
-
-function _calculateBounceVelocity(
-  robotX: number,
-  robotY: number,
-  velocityX: number,
-  velocityY: number,
-  productX: number,
-  productY: number
-): { vx: number; vy: number } {
-  // Calculate collision normal (from product to robot)
-  const dx = robotX - productX
-  const dy = robotY - productY
-  const distance = Math.sqrt(dx * dx + dy * dy)
-
-  // Normalize the collision normal
-  const normalX = dx / distance
-  const normalY = dy / distance
-
-  // Calculate dot product of velocity and normal
-  const dotProduct = velocityX * normalX + velocityY * normalY
-
-  // Reflect velocity vector across the normal
-  // v' = v - 2(v·n)n
-  const reflectedVx = velocityX - 2 * dotProduct * normalX
-  const reflectedVy = velocityY - 2 * dotProduct * normalY
-
-  // Apply damping to simulate energy loss
-  return {
-    vx: reflectedVx * BOUNCE_DAMPING,
-    vy: reflectedVy * BOUNCE_DAMPING
-  }
 }
 
 export function useRobotSimulation(
