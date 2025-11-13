@@ -61,17 +61,18 @@ export const RobotMesh = ({ robot, showLabel = false }: RobotMeshProps) => {
       </mesh>
 
       {showLabel && (
-        <Text
-          position={[0, 4, 0]}
-          fontSize={0.8}
-          color="#00d4ff"
-          anchorX="center"
-          anchorY="middle"
-          outlineWidth={0.02}
-          outlineColor="#000000"
-        >
-          {robot.name}
-        </Text>
+        // <Text
+        //   position={[0, 4, 0]}
+        //   fontSize={0.8}
+        //   color="#00d4ff"
+        //   anchorX="center"
+        //   anchorY="middle"
+        //   outlineWidth={0.02}
+        //   outlineColor="#000000"
+        // >
+        //   {robot.name}
+        // </Text>
+        null
       )}
     </group>
   )
